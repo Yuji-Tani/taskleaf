@@ -10,7 +10,7 @@ jobs:
       - image: circleci/ruby:2.6.3-node-browsers
         environment:
           PGHOST: localhost
-          PGUSER: scaffold_app
+          PGUSER: taskleaf
           BUNDLER_VERSION: 2.0.1
           RAILS_ENV: test
       - image:  circleci/postgres:11.4-alpine-postgis
