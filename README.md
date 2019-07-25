@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/Yuji-Tani/taskleaf.svg?style=svg)](https://circleci.com/gh/Yuji-Tani/taskleaf)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a4c26ff014b5b9b97b1d/maintainability)](https://codeclimate.com/github/Yuji-Tani/taskleaf/maintainability)
 
 # README
 
