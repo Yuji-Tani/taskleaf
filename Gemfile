@@ -69,3 +69,5 @@ gem 'slim-rails'
 
 # bootstrap
 gem 'bootstrap'
+# rinku
+gem 'rinku'
