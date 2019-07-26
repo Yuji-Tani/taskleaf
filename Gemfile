@@ -73,3 +73,5 @@ gem 'slim-rails'
 gem 'bootstrap'
 # rinku
 gem 'rinku'
+# ransack
+gem 'ransack'

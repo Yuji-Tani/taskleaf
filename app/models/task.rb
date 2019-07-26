@@ -1,11 +1,19 @@
 class Task < ApplicationRecord
   validates :name, presence: true
-  validates :name, length: { maximum: 30 }
+  validates :name, length: {maximum: 30}
   validate :validate_name_not_including_comma
 
   belongs_to :user
 
-  scope :record_entity_expansion, -> { order(created_at: :desc) }
+  scope :record_entity_expansion, -> {order(created_at: :desc)}
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name created_at]
+  end
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
+
 end
 
 private
