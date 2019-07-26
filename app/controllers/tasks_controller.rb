@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+
   def index
     @tasks = current_user.tasks.order(created_at: :desc)
   end
@@ -11,11 +12,22 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
+  def confirm_new
+    @task = current_user.tasks.new(task_params)
+    render :new unless @task.valid?
+  end
+
   def edit
   end
 
   def create
     @task = Task.new(task_params.merge(user_id: current_user.id))
+
+    if params[:back].present?
+      render :new
+      return
+    end
+
     if @task.save
       logger.debug "task: #{@task.attributes.inspect}"
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"
