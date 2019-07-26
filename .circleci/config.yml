@@ -13,11 +13,11 @@ jobs:
           PGUSER: taskleaf
           BUNDLER_VERSION: 2.0.1
           RAILS_ENV: test
-      - image:  circleci/postgres:11.4-alpine-postgis
+      - image: circleci/postgres:11.4-alpine-postgis
         environment:
+          POSTGRES_DB: taskleaf_test
           POSTGRES_USER: taskleaf
           POSTGRES_PASSWORD: test
-          POSTGRES_DB: taskleaf_test
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
