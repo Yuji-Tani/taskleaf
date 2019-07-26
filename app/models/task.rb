@@ -6,6 +6,7 @@ class Task < ApplicationRecord
 
   belongs_to :user
 
+  scope :record_entity_expansion, -> { order(created_at: :desc) }
 end
 
 private
