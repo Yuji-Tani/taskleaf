@@ -77,3 +77,5 @@ gem 'rinku'
 gem 'ransack'
 # annotate
 gem 'annotate'
+# kaminari
+gem 'kaminari'
