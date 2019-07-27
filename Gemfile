@@ -75,3 +75,5 @@ gem 'bootstrap'
 gem 'rinku'
 # ransack
 gem 'ransack'
+# annotate
+gem 'annotate'
