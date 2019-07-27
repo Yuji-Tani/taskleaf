@@ -19,13 +19,13 @@ describe 'タスク管理機能', type: :system do
 
   describe '一覧表示機能' do
     context 'ユーザーAがログインしているとき' do
-      let(:login_user) {user_a}
+      let(:login_user) { user_a }
 
       it_behaves_like 'ユーザーAが作成したタスクが表示される'
     end
 
     context 'ユーザーBがログインしているとき' do
-      let(:login_user) {user_b}
+      let(:login_user) { user_b }
 
       it 'ユーザーAが作成したタスクが表示されない' do
         expect(page).to have_no_content '最初のタスク'
@@ -49,14 +49,13 @@ describe 'タスク管理機能', type: :system do
     let(:login_user) {user_a}
     let(:task_name) {'新規作成のテストを書く'}
 
-    context '新規作成画面で名称を入力したとき' do
+    before do
+      visit new_task_path
+      fill_in 'task-name', with: task_name
+      click_button '登録する'
+    end
 
-      before do
-        visit new_task_path
-        fill_in 'task-name', with: task_name
-        click_button '確認'
-        click_button '登録'
-      end
+    context '新規作成画面で名称を入力したとき' do
 
       it '正常に登録される' do
         expect(page).to have_selector '.alert-success', text: '新規作成のテストを書く'
@@ -65,12 +64,6 @@ describe 'タスク管理機能', type: :system do
 
     context '新規作成画面で名称を入力しなかったとき' do
       let(:task_name) {''}
-
-      before do
-        visit new_task_path
-        fill_in 'task-name', with: task_name
-        click_button '確認'
-      end
 
       it 'エラーとなる' do
         within '#error_explanation' do
