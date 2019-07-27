@@ -79,3 +79,5 @@ gem 'ransack'
 gem 'annotate'
 # kaminari
 gem 'kaminari'
+# sidekiq
+gem 'sidekiq'
